@@ -1,0 +1,281 @@
+﻿@page
+@model ECommerce.Pages.IndexModel
+@{
+    ViewData["Title"] = "Electronics_Site - Premium Tech Store";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <!-- Bootswatch Darkly Theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5/dist/darkly/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/custom.css" asp-append-version="true">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/images/tech-banner.jpg" as="image">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" asp-page="/Index">
+                <i class="fas fa-bolt me-2"></i>Electronics_Site
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-page="/Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a asp-page="/Cart" class="btn btn-secondary me-2">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                        <span class="badge bg-danger">3</span>
+                    </a>
+                    <a href="#" class="btn btn-success">
+                        <i class="fas fa-user"></i> Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Background Image -->
+    <header class="hero-section" style="background-image: url('/images/photos/gg.jpg');" aria-label="Technology products showcase">
+        <div class="hero-overlay bg-dark opacity-75"></div>
+        <div class="container position-relative z-index-1">
+            <div class="hero-content text-center py-5">
+                <h1 class="display-4 fw-bold text-white animate__animated animate__fadeInDown">Welcome to Electronics_Site</h1>
+                <p class="lead text-white-75 mb-4 animate__animated animate__fadeIn animate__delay-1s">Discover cutting-edge tech at unbeatable prices</p>
+                <div class="d-flex justify-content-center gap-3 animate__animated animate__fadeInUp animate__delay-2s">
+                    <a asp-page="/Products" class="btn btn-primary btn-lg px-4">
+                        <i class="fas fa-shopping-bag me-2"></i> Browse Products
+                    </a>
+                    <a href="#featured" class="btn btn-outline-light btn-lg px-4">
+                        <i class="fas fa-star me-2"></i> Featured
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Featured Products -->
+    <section id="featured" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5"><i class="fas fa-star me-2"></i>Featured Products</h2>
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 product-card">
+                        <div class="product-badge bg-success">Best Seller</div>
+                        <img src="~/images/photos/headphones.jpg" class="card-img-top" alt="Wireless Headphones" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title">Wireless Headphones</h5>
+                            <p class="card-text">Premium noise-cancelling wireless headphones with 30hr battery life.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="h5 text-success">$129.99</span>
+                                    <small class="text-muted ms-2"><del>$149.99</del></small>
+                                </div>
+                                <a asp-page="/ProductDetail" asp-route-id="1" class="btn btn-sm btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 product-card">
+                        <div class="product-badge bg-info">New</div>
+                        <img src="~/images/photos/smartwwatch.jpg" class="card-img-top" alt="Smart Watch" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title">Smart Watch</h5>
+                            <p class="card-text">Fitness tracker with heart rate monitor and built-in GPS.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-success">$199.99</span>
+                                <a asp-page="/ProductDetail" asp-route-id="2" class="btn btn-sm btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 product-card">
+                        <img src="~/images/photos/speaker.jpg" class="card-img-top" alt="Bluetooth Speaker" loading="lazy">
+                        <div class="card-body">
+                            <h5 class="card-title">Bluetooth Speaker</h5>
+                            <p class="card-text">Portable waterproof speaker with 20hr battery life.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-success">$89.99</span>
+                                <a asp-page="/ProductDetail" asp-route-id="3" class="btn btn-sm btn-primary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a asp-page="/Products" class="btn btn-outline-primary btn-lg">
+                    View All Products <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-5 bg-secondary">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="feature-box p-4 h-100">
+                        <i class="fas fa-truck fa-3x mb-3 text-primary"></i>
+                        <h3>Free Shipping</h3>
+                        <p class="mb-0">Enjoy free shipping on all orders over $50</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box p-4 h-100">
+                        <i class="fas fa-undo fa-3x mb-3 text-primary"></i>
+                        <h3>Easy Returns</h3>
+                        <p class="mb-0">30-day hassle-free return policy</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-box p-4 h-100">
+                        <i class="fas fa-lock fa-3x mb-3 text-primary"></i>
+                        <h3>Secure Payments</h3>
+                        <p class="mb-0">256-bit SSL encrypted transactions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3 class="mb-1">Stay Updated</h3>
+                    <p class="mb-0">Subscribe to our newsletter for the latest tech news and exclusive deals</p>
+                </div>
+                <div class="col-lg-6">
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control form-control-lg" placeholder="Your email address" required>
+                            <button class="btn btn-primary btn-lg" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="text-uppercase mb-4">Electronics_Site</h5>
+                    <p>Your premier destination for cutting-edge electronics and tech accessories.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="text-white me-3" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="text-uppercase mb-4">Shop</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a asp-page="/Products" class="text-white-50">All Products</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Featured</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">New Arrivals</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Deals & Promos</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <h6 class="text-uppercase mb-4">Support</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Contact Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">FAQs</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Shipping Info</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <h6 class="text-uppercase mb-4">Contact</h6>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Tech Street, Silicon Valley</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> (555) 123-4567</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@electronics-site.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <p class="mb-0 small">&copy; 2025 Electronics_Site. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#" class="text-white-50 small">Privacy Policy</a></li>
+                        <li class="list-inline-item"><span class="mx-2">•</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 small">Terms of Service</a></li>
+                        <li class="list-inline-item"><span class="mx-2">•</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50 small">Sitemap</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Custom JS -->
+    <script src="~/js/main.js" asp-append-version="true"></script>
+
+    @section Scripts {
+        <script>
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Hero image lazy loading enhancement
+            document.addEventListener('DOMContentLoaded', function() {
+                const hero = document.querySelector('.hero-section');
+                if(hero) {
+                    const img = new Image();
+                    img.src = hero.style.backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+                    img.onload = function() {
+                        hero.classList.add('bg-loaded');
+                    };
+                }
+            });
+        </script>
+    }
+</body>
+</html>

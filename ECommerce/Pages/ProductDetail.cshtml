@@ -1,0 +1,294 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail | ShopDark</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5/dist/darkly/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <style>
+        .product-gallery img {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .product-gallery img:hover {
+            opacity: 0.7;
+        }
+        .main-image {
+            height: 400px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (Same as index.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <!-- Copy from index.html -->
+    </nav>
+
+    <!-- Product Detail -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-4 text-center">
+                    <img id="mainImage" src="https://via.placeholder.com/600x400" class="img-fluid main-image rounded" alt="Product">
+                </div>
+                <div class="row product-gallery">
+                    <div class="col-3">
+                        <img src="https://via.placeholder.com/150x100" class="img-fluid rounded mb-2" onclick="changeImage(this.src)">
+                    </div>
+                    <div class="col-3">
+                        <img src="https://via.placeholder.com/150x100/333" class="img-fluid rounded mb-2" onclick="changeImage(this.src)">
+                    </div>
+                    <div class="col-3">
+                        <img src="https://via.placeholder.com/150x100/555" class="img-fluid rounded mb-2" onclick="changeImage(this.src)">
+                    </div>
+                    <div class="col-3">
+                        <img src="https://via.placeholder.com/150x100/777" class="img-fluid rounded mb-2" onclick="changeImage(this.src)">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">In Stock</span>
+                        <h2 class="card-title">Premium Wireless Headphones</h2>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="text-warning me-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <a href="#reviews" class="text-muted">(42 customer reviews)</a>
+                        </div>
+
+                        <h3 class="text-success mb-4">$199.99 <small class="text-muted"><del>$249.99</del></small></h3>
+
+                        <p class="card-text">Experience crystal-clear sound with our premium wireless headphones. Featuring active noise cancellation, 30-hour battery life, and premium comfort for all-day wear.</p>
+
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item bg-transparent"><i class="fas fa-check text-success me-2"></i> Active Noise Cancellation</li>
+                            <li class="list-group-item bg-transparent"><i class="fas fa-check text-success me-2"></i> 30-hour battery life</li>
+                            <li class="list-group-item bg-transparent"><i class="fas fa-check text-success me-2"></i> Built-in microphone</li>
+                            <li class="list-group-item bg-transparent"><i class="fas fa-check text-success me-2"></i> Touch controls</li>
+                        </ul>
+
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <label class="form-label">Color</label>
+                                <select class="form-select">
+                                    <option>Black</option>
+                                    <option>White</option>
+                                    <option>Blue</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Quantity</label>
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary" type="button">-</button>
+                                    <input type="text" class="form-control text-center" value="1">
+                                    <button class="btn btn-outline-secondary" type="button">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex">
+                            <button class="btn btn-primary btn-lg me-md-2">
+                                <i class="fas fa-cart-plus me-2"></i> Add to Cart
+                            </button>
+                            <button class="btn btn-outline-secondary btn-lg">
+                                <i class="far fa-heart me-2"></i> Wishlist
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Tabs -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <ul class="nav nav-tabs" id="productTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button">Description</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="specs-tab" data-bs-toggle="tab" data-bs-target="#specs" type="button">Specifications</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button">Reviews</button>
+                    </li>
+                </ul>
+                <div class="tab-content p-4 border border-top-0 rounded-bottom">
+                    <div class="tab-pane fade show active" id="description" role="tabpanel">
+                        <h4>Product Description</h4>
+                        <p>Our Premium Wireless Headphones deliver exceptional sound quality with advanced noise cancellation technology. Perfect for music lovers, travelers, and professionals who demand the best audio experience.</p>
+                        <p>The ergonomic design ensures comfort during extended use, while the durable construction guarantees long-lasting performance. With intuitive touch controls and voice assistant compatibility, these headphones offer a seamless user experience.</p>
+                    </div>
+                    <div class="tab-pane fade" id="specs" role="tabpanel">
+                        <h4>Technical Specifications</h4>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th>Brand</th>
+                                    <td>AudioMaster</td>
+                                </tr>
+                                <tr>
+                                    <th>Model</th>
+                                    <td>WH-2023</td>
+                                </tr>
+                                <tr>
+                                    <th>Battery Life</th>
+                                    <td>30 hours (ANC on), 40 hours (ANC off)</td>
+                                </tr>
+                                <tr>
+                                    <th>Bluetooth</th>
+                                    <td>5.0 with multipoint connection</td>
+                                </tr>
+                                <tr>
+                                    <th>Weight</th>
+                                    <td>254g</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="reviews" role="tabpanel">
+                        <h4>Customer Reviews</h4>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center">
+                                    <h1 class="display-4 me-3">4.7</h1>
+                                    <div>
+                                        <div class="text-warning mb-1">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                        <p class="mb-0">Based on 42 reviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary float-md-end" data-bs-toggle="modal" data-bs-target="#reviewModal">
+                                    <i class="fas fa-pen me-2"></i>Write a Review
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Review Item -->
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-2">
+                                    <div>
+                                        <span class="text-warning">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </span>
+                                        <strong class="ms-2">Excellent sound quality</strong>
+                                    </div>
+                                    <small class="text-muted">Posted on 15 May 2023</small>
+                                </div>
+                                <p class="mb-2">These headphones exceeded my expectations. The noise cancellation is fantastic and the battery life is impressive.</p>
+                                <small class="text-muted">By John D.</small>
+                            </div>
+                        </div>
+
+                        <!-- More reviews... -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="mb-4">You may also like</h3>
+                <div class="row">
+                    <!-- Related product cards (similar to products.html) -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Write a Review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Rating</label>
+                            <div class="rating">
+                                <i class="far fa-star fa-2x" data-value="1"></i>
+                                <i class="far fa-star fa-2x" data-value="2"></i>
+                                <i class="far fa-star fa-2x" data-value="3"></i>
+                                <i class="far fa-star fa-2x" data-value="4"></i>
+                                <i class="far fa-star fa-2x" data-value="5"></i>
+                                <input type="hidden" id="ratingValue" name="rating" value="0">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Title</label>
+                            <input type="text" class="form-control" placeholder="Summary of your review">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Review</label>
+                            <textarea class="form-control" rows="5" placeholder="Share your experience with this product"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-dark text-white py-5">
+        <!-- Copy from index.html -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Change main product image when thumbnail is clicked
+        function changeImage(src) {
+            document.getElementById('mainImage').src = src;
+        }
+
+        // Star rating functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('.rating i');
+            const ratingValue = document.getElementById('ratingValue');
+
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const value = this.getAttribute('data-value');
+                    ratingValue.value = value;
+
+                    stars.forEach((s, index) => {
+                        if (index < value) {
+                            s.classList.remove('far');
+                            s.classList.add('fas');
+                        } else {
+                            s.classList.remove('fas');
+                            s.classList.add('far');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
