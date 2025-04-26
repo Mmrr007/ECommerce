@@ -1,30 +1,18 @@
-﻿// In Services/ProductService.cs
-using ECommerce;
-using System;
+﻿// /Services/ProductService.cs
+using ECommerce.Data;
+using ECommerce.Models;
 
-public class ProductService
+namespace ECommerce.Services;
+
+public class ProductService(AppDbContext context)
 {
-    private readonly AppDbContext _context;
-    private readonly ICacheService _cache;
+    public List<Product> GetAllProducts() => context.Products.ToList();
 
-    public ProductService(AppDbContext context, ICacheService cache)
+    public List<Product> GetFeaturedProducts() =>
+        context.Products.Where(p => p.IsFeatured).ToList();
+
+    internal List<Product> Getproducts()
     {
-        _context = context;
-        _cache = cache;
-    }
-
-    public async Task<List<Product>> GetFeaturedProductsAsync(int count = 6)
-    {
-        var cacheKey = $"featured_products_{count}";
-
-        return await _cache.GetOrCreateAsync(cacheKey, async entry => {
-            entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30);
-            return await _context.Products
-                .Where(p => p.IsFeatured)
-                .OrderByDescending(p => p.PopularityScore)
-                .Take(count)
-                .AsNoTracking()
-                .ToListAsync();
-        });
+        throw new NotImplementedException();
     }
 }

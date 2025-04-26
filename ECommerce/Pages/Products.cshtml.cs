@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using ECommerce.Models;
+using ECommerce.Services;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ECommerce.Pages
@@ -15,7 +17,7 @@ namespace ECommerce.Pages
 
         public void OnGet()
         {
-            Products = _productService.GetProducts();  // Correct field usage
+            Products = _productService.Getproducts();  // Correct field usage
         }
     }
 }
